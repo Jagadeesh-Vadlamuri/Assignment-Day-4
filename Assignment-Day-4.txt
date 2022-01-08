@@ -1,0 +1,89 @@
+1. How to compare two JSON have the same properties without order?
+   var obj1 = { name: "Person 1", age:5 };
+   var obj2 = { age:5, name: "Person 1" };
+
+Ans:
+
+We can use Lodash operator to compare if two objects are equal irrespective of their order
+
+var obj1 = {name: "Person 1",age:5},
+    obj2 = {age:5,name: "Person 1"};
+
+console.log( _.isEqual(obj1, obj2) );
+
+2. Use the rest countries API url -> https://restcountries.com/v3.1/all and display all the country flags in console ?
+
+Ans:
+
+HTML Code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="script.js"></script>
+</body>
+</html>
+
+Corresponding script.js Code:
+
+let xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+xhr.onload = function(){
+    if(xhr.status>=200 && xhr.status<300){
+        let data = JSON.parse(this.response);
+        for(var i=0; i<data.length; i++){
+            console.log(data[i].flags);
+        }
+    }
+}
+xhr.send();
+
+3. Use the same rest countries and print all countries name, region, sub region and population ?
+
+Ans:
+
+HTML Code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="script.js"></script>
+</body>
+</html>
+
+Corresponding script.js code
+
+let xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+xhr.onload = function(){
+    if(xhr.status>=200 && xhr.status<300){
+        let data = JSON.parse(this.response);
+        for(var i=0; i<data.length; i++){
+            console.log(data[i].name);
+            console.log(data[i].region);
+            console.log(data[i].subregion);
+            console.log(data[i].population)
+        }
+    }
+}
+xhr.send();
+
+4. https://medium.com/@reach2arunprakash/www-guvi-io-zen-d395deec1373 ?
+
+Ans:
+
+Referred and practiced all the simple problems on my local machine
